@@ -1,0 +1,39 @@
+<input type="text" class="form-control" [(ngModel)]="terms" />
+
+<div class="row py-5">
+    <div class="col-md-4">
+        <div class="line w-25"></div>
+        <h2 class="my-3">Trending <br> Movies <br> To Watch Now</h2>
+
+        <p class="text-muted">most watched movies by day</p>
+        <div class="line w-75"></div>
+
+    </div>
+    <div class="col-md-2 mb-3 position-relative" *ngFor="let movie of trendingMovies|search:terms">
+        <a [routerLink]="['/moviedetails', movie.id]" class="text-white">
+            <img [src]="imgSrc+movie.poster_path" alt="film" class="w-100">
+            <h5 class="h5 text-center">{{movie.original_title}}{{movie.name}}</h5>
+            <div class="position-absolute vote bg-info text-center rounded-2">{{movie.vote_average}}</div>
+            </a>
+    </div>
+    
+</div>
+<div class="row py-5">
+
+    <div class="col-md-4">
+        <div class="line w-25"></div>
+        <h2 class="my-3">Trending <br> Movies <br> To Watch Now</h2>
+
+        <p class="text-muted">most watched movies by day</p>
+        <div class="line w-75"></div>
+
+    </div>
+
+    <div class="col-md-2 mb-3 position-relative" *ngFor="let tv of trendingTv|search:terms">
+
+        <img [src]="imgSrc+tv.poster_path" alt="film" class="w-100">
+        <h5 class="h5 text-center">{{tv.original_title}}{{tv.name}}</h5>
+        <div class="position-absolute vote bg-info text-center rounded-2">{{tv.vote_average}}</div>
+
+    </div>
+</div>

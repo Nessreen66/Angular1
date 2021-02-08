@@ -1,0 +1,49 @@
+<form [formGroup]="signup" (ngSubmit)="registerForm(signup)" class="my-5 w-75 mx-auto" >
+
+
+<label for="firstName">FirstName:</label>
+<input type="text"  id="firstName" class="form-control" formControlName="first_name" >
+
+<div class="alert text-danger" *ngIf="first_name?.invalid && first_name?.touched">
+
+<p *ngIf="first_name?.errors?.required">this is Required</p>
+<p *ngIf="first_name?.errors?.maxlength">this is 10 letters</p>
+<p *ngIf="first_name?.errors?.minlength">this is 3 letters</p>
+
+
+</div>
+<label for="lastName">LastName:</label>
+<input type="text"  id="lastName" class="form-control" formControlName="last_name">
+
+<div class="alert text-danger" *ngIf="last_name?.invalid && last_name?.touched">
+
+<p *ngIf="last_name?.errors?.required">this is Required</p>
+<p *ngIf="last_name?.errors?.maxlength">this is 10 letters</p>
+<p *ngIf="last_name?.errors?.minlength">this is 3 letters</p>
+
+
+</div>
+<label for="email">Email:</label>
+<input type="text"  id="email" class="form-control" formControlName="email" >
+
+<div class="alert text-danger" *ngIf="email?.invalid && email?.touched">
+
+<p *ngIf="email?.errors?.required">this is Required</p>
+<p *ngIf="email?.errors?.email">Please Enter Valid Email</p>
+
+
+</div>
+<label for="password">Password:</label>
+<input type="password"  id="password" class="form-control" formControlName="password" >
+
+<div class="alert text-danger" *ngIf="password?.invalid && password?.touched">
+
+<p *ngIf="password?.errors?.required">this is Required</p>
+<p *ngIf="password?.errors?.pattern">Please Enter Valid Password</p>
+
+
+</div>
+
+<button class="btn btn-primary mt-3" [disabled]="signup.invalid">Register</button>
+
+</form>
